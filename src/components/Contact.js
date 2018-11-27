@@ -2,15 +2,39 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 class Contact extends Component {
+  constructor() {
+    super();
+    this.state = {
+      contacts: [
+        {
+          id: 1,
+          name: "John Doe",
+          email: "jdoe@gmail.com",
+          phone: "555-555-5555"
+        },
+        {
+          id: 2,
+          name: "Karen Williams",
+          email: "kwilliams@gmail.com",
+          phone: "555-224-5881"
+        },
+        {
+          id: 3,
+          name: "Henry Johnson",
+          email: "henry@gmail.com",
+          phone: "555-123-4567"
+        }
+      ]
+    };
+  }
   render() {
-    const { name, email, phone } = this.props;
+    const { contacts } = this.state;
+
     return (
-      <div className="card card-body mb-3">
-        <h4>{name}</h4>
-        <ul className="list-group">
-          <li className="list-group-item">E-mail: {email}</li>
-          <li className="list-group-item">Phone: {phone}</li>
-        </ul>
+      <div>
+        {contacts.map(contact => (
+          <h1>{contact.name}</h1>
+        ))}
       </div>
     );
   }
